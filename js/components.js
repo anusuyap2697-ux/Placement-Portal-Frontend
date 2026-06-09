@@ -1,4 +1,22 @@
 const Components = {
+    LoginView() {
+        return `<div class="fade-in" style="height:100vh;display:flex;align-items:center;justify-content:center;background:var(--background);">
+            <div class="glass" style="padding:3rem;width:100%;max-width:400px;text-align:center;border-radius:var(--radius-lg);">
+                <div style="width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem auto;">
+                    <i data-lucide="lock" style="color:white;" size="28"></i>
+                </div>
+                <h1 style="margin-bottom:0.5rem;font-size:1.8rem;">Placement Portal</h1>
+                <p style="color:var(--text-muted);margin-bottom:2rem;font-size:0.9rem;">Sign in to access your dashboard</p>
+                
+                <form id="login-form" onsubmit="App.handleLogin(event)" style="display:flex;flex-direction:column;gap:1rem;">
+                    <input type="text" name="userid" placeholder="User ID (e.g., S001 or admin)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:white;width:100%;" required>
+                    <input type="email" name="email" placeholder="Email Address" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:white;width:100%;" required>
+                    <button type="submit" class="btn btn-primary" style="padding:0.75rem;font-size:1rem;margin-top:0.5rem;width:100%;">Sign In</button>
+                </form>
+            </div>
+        </div>`;
+    },
+
     Sidebar(activeView = 'admin') {
         const links = [
             { id: 'admin', icon: 'layout-dashboard', label: 'Dashboard' },
@@ -28,7 +46,7 @@ const Components = {
                 <nav class="sidebar-nav">
                     ${links.map(link => `<a href="#${link.id}" class="nav-link ${activeView === link.id ? 'active' : ''}" data-view="${link.id}"><i data-lucide="${link.icon}" size="18"></i><span>${link.label}</span></a>`).join('')}
                 </nav>
-                <div style="margin-top:auto;"><a href="#" class="nav-link" style="color:var(--danger);" onclick="alert('Demo Logout')"><i data-lucide="log-out" size="18"></i><span>Logout</span></a></div>
+                <div style="margin-top:auto;"><a href="#" class="nav-link" style="color:var(--danger);" onclick="App.handleLogout()"><i data-lucide="log-out" size="18"></i><span>Logout</span></a></div>
             </div>`;
     },
 

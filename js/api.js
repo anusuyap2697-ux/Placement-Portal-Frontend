@@ -55,7 +55,8 @@ const API = {
     async getSkillGaps() { return (await fetch(BASE_URL + '/api/skills/gap')).json(); },
     async getTrainingModules() { return (await fetch(BASE_URL + '/api/training')).json(); },
     async getAlumni() { return (await fetch(BASE_URL + '/api/alumni')).json(); },
-    async getResumeScore(id) { return (await fetch(`/api/resumes/score/${id}`)).json(); },
-    async registerForDrive(id, sid) { const r = await fetch(`/api/drives/${id}/register`, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({student_id:sid}) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); }
+    async getResumeScore(id) { return (await fetch(BASE_URL + `/api/resumes/score/${id}`)).json(); },
+    async registerForDrive(id, sid) { const r = await fetch(BASE_URL + `/api/drives/${id}/register`, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({student_id:sid}) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); },
+    async login(userid, email) { const r = await fetch(BASE_URL + '/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({userid, email}) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); }
 };
 window.API = API;
