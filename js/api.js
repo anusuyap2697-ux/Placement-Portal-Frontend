@@ -43,6 +43,7 @@ const API = {
     async markAllNotificationsRead() { return (await fetch(BASE_URL + '/api/notifications/read-all', { method:'PUT' })).json(); },
     
     async getOffers() { return (await fetch(BASE_URL + '/api/offers')).json(); },
+
     async addOffer(d) { return (await fetch(BASE_URL + '/api/offers', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d) })).json(); },
     
     async getPredictor() { return (await fetch(BASE_URL + '/api/predictor')).json(); },
@@ -57,6 +58,8 @@ const API = {
     async getAlumni() { return (await fetch(BASE_URL + '/api/alumni')).json(); },
     async getResumeScore(id) { return (await fetch(BASE_URL + `/api/resumes/score/${id}`)).json(); },
     async registerForDrive(id, sid) { const r = await fetch(BASE_URL + `/api/drives/${id}/register`, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({student_id:sid}) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); },
-    async login(userid, email) { const r = await fetch(BASE_URL + '/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({userid, email}) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); }
+    async login(email, password) { const r = await fetch(BASE_URL + '/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email, password}) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); },
+    async forgotPassword(email) { const r = await fetch(BASE_URL + '/api/forgot-password', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email}) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); },
+    async resetPassword(email, otp, newPassword) { const r = await fetch(BASE_URL + '/api/reset-password', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email, otp, newPassword}) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); }
 };
 window.API = API;

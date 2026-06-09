@@ -8,21 +8,16 @@ const App = {
         this.routerView = document.getElementById('router-view');
         this.loadingView = document.getElementById('view-loading');
         
-        const storedUser = localStorage.getItem('currentUser');
-        if (storedUser) this.currentUser = JSON.parse(storedUser);
+        // Remove Login Page - Always bypass as Admin
+        this.currentUser = { id: 'admin', name: 'Administrator', email: 'admin@college.edu' };
         
         window.addEventListener('hashchange', () => this.handleRoute());
         this.handleRoute();
     },
 
     handleRoute() {
-        if (!this.currentUser) {
-            this.currentView = 'login';
-            window.location.hash = 'login';
-        } else {
-            const hash = window.location.hash.replace('#', '') || 'admin';
-            this.currentView = hash === 'login' ? 'admin' : hash;
-        }
+        const hash = window.location.hash.replace('#', '') || 'admin';
+        this.currentView = (hash === 'login' || hash === 'forgot') ? 'admin' : hash;
         this.renderView();
         this.renderSidebar();
     },
@@ -46,6 +41,9 @@ const App = {
             switch(this.currentView) {
                 case 'login':
                     html = Components.LoginView();
+                    break;
+                case 'forgot':
+                    html = Components.ForgotPasswordView();
                     break;
                 case 'admin':
                     const [stats, apps, activities] = await Promise.all([API.getStats(), API.getApplications(), API.getActivities()]);
@@ -120,7 +118,7 @@ const App = {
         event.preventDefault();
         const d = Object.fromEntries(new FormData(event.target).entries());
         try {
-            const res = await API.login(d.userid, d.email);
+            const res = await API.login(d.email, d.password);
             if (res.success) {
                 this.currentUser = res.user;
                 localStorage.setItem('currentUser', JSON.stringify(res.user));
@@ -129,6 +127,35 @@ const App = {
             }
         } catch(e) {
             alert('Login failed: ' + e.message);
+        }
+    },
+
+    async handleForgotPassword(event) {
+        event.preventDefault();
+        const email = document.getElementById('reset-email').value;
+        try {
+            const res = await API.forgotPassword(email);
+            if (res.success) {
+                document.getElementById('forgot-step-1').style.display = 'none';
+                document.getElementById('forgot-step-2').style.display = 'block';
+            }
+        } catch(e) {
+            alert('Error: ' + e.message);
+        }
+    },
+
+    async handleResetPassword(event) {
+        event.preventDefault();
+        const email = document.getElementById('reset-email').value;
+        const d = Object.fromEntries(new FormData(event.target).entries());
+        try {
+            const res = await API.resetPassword(email, d.otp, d.newPassword);
+            if (res.success) {
+                alert('Password reset successfully! Please login with your new password.');
+                window.location.hash = 'login';
+            }
+        } catch(e) {
+            alert('Error: ' + e.message);
         }
     },
 
