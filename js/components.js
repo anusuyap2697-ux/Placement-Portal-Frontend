@@ -78,7 +78,7 @@ const Components = {
                 <nav class="sidebar-nav">
                     ${links.map(link => `<a href="#${link.id}" class="nav-link ${activeView === link.id ? 'active' : ''}" data-view="${link.id}"><i data-lucide="${link.icon}" size="18"></i><span>${link.label}</span></a>`).join('')}
                 </nav>
-                <div style="margin-top:auto;"><a href="#" class="nav-link" style="color:var(--danger);" onclick="alert('Demo Logout Successful!')"><i data-lucide="log-out" size="18"></i><span>Logout</span></a></div>
+                <div style="margin-top:auto;"><a href="#" class="nav-link" style="color:var(--danger);" onclick="App.handleLogout()"><i data-lucide="log-out" size="18"></i><span>Logout</span></a></div>
             </div>`;
     },
 

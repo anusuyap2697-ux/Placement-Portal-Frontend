@@ -8,16 +8,26 @@ const App = {
         this.routerView = document.getElementById('router-view');
         this.loadingView = document.getElementById('view-loading');
         
-        // Remove Login Page - Always bypass as Admin
-        this.currentUser = { id: 'admin', name: 'Administrator', email: 'admin@college.edu' };
+        const storedUser = localStorage.getItem('currentUser');
+        if (storedUser) this.currentUser = JSON.parse(storedUser);
         
         window.addEventListener('hashchange', () => this.handleRoute());
         this.handleRoute();
     },
 
     handleRoute() {
-        const hash = window.location.hash.replace('#', '') || 'admin';
-        this.currentView = (hash === 'login' || hash === 'forgot') ? 'admin' : hash;
+        if (!this.currentUser) {
+            const hash = window.location.hash.replace('#', '') || 'login';
+            if (hash === 'forgot') {
+                this.currentView = 'forgot';
+            } else {
+                this.currentView = 'login';
+                window.location.hash = 'login';
+            }
+        } else {
+            const hash = window.location.hash.replace('#', '') || 'admin';
+            this.currentView = hash === 'login' ? 'admin' : hash;
+        }
         this.renderView();
         this.renderSidebar();
     },
