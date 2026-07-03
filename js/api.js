@@ -1,4 +1,4 @@
-const BASE_URL = window.location.hostname.includes('github.io') ? 'https://placement-portal-3-lv7i.onrender.com' : '';
+const BASE_URL = 'https://placement-portal-3-lv7i.onrender.com';
 
 const API = {
     async getStats() { return (await fetch(BASE_URL + '/api/stats')).json(); },
