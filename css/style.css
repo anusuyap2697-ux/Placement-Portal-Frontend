@@ -1,12 +1,12 @@
 /* Design System & Global Styles */
 :root {
-    --primary: #d4af37; /* Metallic Gold */
-    --primary-hover: #fde047; /* Bright Gold */
-    --secondary: #b45309; /* Deep Bronze/Amber */
-    --accent: #f59e0b; /* Golden Orange */
-    --background: #000000; /* Pure Black */
-    --surface: rgba(20, 20, 20, 0.8); /* Dark Glass */
-    --surface-border: rgba(212, 175, 55, 0.25); /* Subtle Gold Border */
+    --primary: #34d399; /* Mint Green */
+    --primary-hover: #10b981; /* Emerald Green */
+    --secondary: #e2e8f0; /* Champagne Silver */
+    --accent: #6ee7b7; /* Soft Green */
+    --background: #022c22; /* Very Dark Forest Green */
+    --surface: rgba(6, 78, 59, 0.4); /* Dark Green Glass */
+    --surface-border: rgba(52, 211, 153, 0.2); /* Subtle Mint Border */
     --text-main: #f8fafc;
     --text-muted: #9ca3af;
     --success: #10b981;
