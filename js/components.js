@@ -3,14 +3,14 @@ const Components = {
         return `<div class="fade-in" style="height:100vh;display:flex;align-items:center;justify-content:center;background:var(--background);">
             <div class="glass" style="padding:3rem;width:100%;max-width:400px;text-align:center;border-radius:var(--radius-lg);">
                 <div style="width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem auto;">
-                    <i data-lucide="lock" style="color:white;" size="28"></i>
+                    <i data-lucide="lock" style="color:var(--text-main);" size="28"></i>
                 </div>
                 <h1 style="margin-bottom:0.5rem;font-size:1.8rem;">Placement Portal</h1>
                 <p style="color:var(--text-muted);margin-bottom:2rem;font-size:0.9rem;">Sign in to access your dashboard</p>
                 
                 <form id="login-form" onsubmit="App.handleLogin(event)" style="display:flex;flex-direction:column;gap:1rem;">
-                    <input type="email" name="email" placeholder="Email Address (e.g., admin@college.edu)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:white;width:100%;" required>
-                    <input type="password" name="password" placeholder="Password" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:white;width:100%;" required>
+                    <input type="email" name="email" placeholder="Email Address (e.g., admin@college.edu)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:var(--text-main);width:100%;" required>
+                    <input type="password" name="password" placeholder="Password" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:var(--text-main);width:100%;" required>
                     <button type="submit" class="btn btn-primary" style="padding:0.75rem;font-size:1rem;margin-top:0.5rem;width:100%;">Sign In</button>
                     <a href="#forgot" style="color:var(--primary);font-size:0.85rem;margin-top:0.5rem;text-decoration:none;">Forgot Password?</a>
                 </form>
@@ -22,14 +22,14 @@ const Components = {
         return `<div class="fade-in" style="height:100vh;display:flex;align-items:center;justify-content:center;background:var(--background);">
             <div class="glass" style="padding:3rem;width:100%;max-width:400px;text-align:center;border-radius:var(--radius-lg);">
                 <div style="width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem auto;">
-                    <i data-lucide="mail" style="color:white;" size="28"></i>
+                    <i data-lucide="mail" style="color:var(--text-main);" size="28"></i>
                 </div>
                 <h1 style="margin-bottom:0.5rem;font-size:1.8rem;">Reset Password</h1>
                 <p style="color:var(--text-muted);margin-bottom:2rem;font-size:0.9rem;">Verify your email to continue</p>
                 
                 <div id="forgot-step-1">
                     <form onsubmit="App.handleForgotPassword(event)" style="display:flex;flex-direction:column;gap:1rem;">
-                        <input type="email" name="email" id="reset-email" placeholder="Enter your registered email" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:white;width:100%;" required>
+                        <input type="email" name="email" id="reset-email" placeholder="Enter your registered email" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:var(--text-main);width:100%;" required>
                         <button type="submit" class="btn btn-primary" style="padding:0.75rem;font-size:1rem;width:100%;">Send Verification Code</button>
                     </form>
                     <a href="#login" style="color:var(--text-muted);font-size:0.85rem;margin-top:1.5rem;display:inline-block;text-decoration:none;">Back to Login</a>
@@ -40,8 +40,8 @@ const Components = {
                         <div style="background:rgba(99,102,241,0.1);color:var(--primary);padding:0.5rem;border-radius:var(--radius-sm);font-size:0.8rem;margin-bottom:0.5rem;">
                             For demo purposes, the verification code is always: <strong>123456</strong>
                         </div>
-                        <input type="text" name="otp" placeholder="6-digit Verification Code" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:white;width:100%;" required>
-                        <input type="password" name="newPassword" placeholder="New Password" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:white;width:100%;" required>
+                        <input type="text" name="otp" placeholder="6-digit Verification Code" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:var(--text-main);width:100%;" required>
+                        <input type="password" name="newPassword" placeholder="New Password" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:var(--text-main);width:100%;" required>
                         <button type="submit" class="btn btn-primary" style="padding:0.75rem;font-size:1rem;width:100%;">Reset Password</button>
                     </form>
                 </div>
@@ -72,7 +72,7 @@ const Components = {
             <div class="sidebar glass">
                 <div class="sidebar-brand">Placement Portal</div>
                 <div style="position:relative;">
-                    <input type="text" id="global-search" placeholder="🔍 Search..." class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem 1rem;color:white;font-size:0.85rem;" oninput="App.handleSearch(this.value)">
+                    <input type="text" id="global-search" placeholder="🔍 Search..." class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem 1rem;color:var(--text-main);font-size:0.85rem;" oninput="App.handleSearch(this.value)">
                     <div id="search-results" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--background);border:1px solid var(--surface-border);border-radius:var(--radius-md);max-height:300px;overflow-y:auto;z-index:100;margin-top:4px;"></div>
                 </div>
                 <nav class="sidebar-nav">
@@ -105,16 +105,16 @@ const Components = {
             <div class="glass" style="padding:1.5rem;margin-bottom:1.5rem;">
                 <h2 style="margin-bottom:1rem;">Register New Student</h2>
                 <form id="student-reg-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.75rem;" onsubmit="App.handleStudentRegister(event)">
-                    <input type="text" name="id" placeholder="ID (e.g. S009)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="text" name="name" placeholder="Full Name" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="text" name="dept" placeholder="Dept" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="number" step="0.01" name="gpa" placeholder="CGPA" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="email" name="email" placeholder="Email" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="text" name="phone" placeholder="Phone" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;">
-                    <div><label style="font-size:0.7rem;color:var(--text-muted);">DOB</label><input type="date" name="dob" class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required></div>
-                    <input type="text" name="skills" placeholder="Skills (comma sep)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;">
-                    <input type="number" name="arrears" placeholder="Arrears" value="0" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;">
-                    <input type="text" name="password" placeholder="Password (default: password123)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;">
+                    <input type="text" name="id" placeholder="ID (e.g. S009)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="text" name="name" placeholder="Full Name" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="text" name="dept" placeholder="Dept" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="number" step="0.01" name="gpa" placeholder="CGPA" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="email" name="email" placeholder="Email" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="text" name="phone" placeholder="Phone" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);">
+                    <div><label style="font-size:0.7rem;color:var(--text-muted);">DOB</label><input type="date" name="dob" class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required></div>
+                    <input type="text" name="skills" placeholder="Skills (comma sep)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);">
+                    <input type="number" name="arrears" placeholder="Arrears" value="0" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);">
+                    <input type="text" name="password" placeholder="Password (default: password123)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);">
                     <button type="submit" class="btn btn-primary">Add Student</button>
                 </form>
             </div>
@@ -150,11 +150,11 @@ const Components = {
             <header style="margin-bottom:2rem;"><h1>Partner Companies</h1><p>${companies.filter(c=>c.approved).length} approved • ${companies.filter(c=>!c.approved).length} pending approval</p></header>
             <div class="glass" style="padding:1.5rem;margin-bottom:2rem;"><h2 style="margin-bottom:1rem;">Register Company</h2>
                 <form id="company-reg-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;" onsubmit="App.handleCompanyRegister(event)">
-                    <input type="text" name="id" placeholder="ID (e.g. C006)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="text" name="name" placeholder="Company Name" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="text" name="industry" placeholder="Industry" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="text" name="website" placeholder="Website" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="text" name="contact" placeholder="HR Email" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
+                    <input type="text" name="id" placeholder="ID (e.g. C006)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="text" name="name" placeholder="Company Name" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="text" name="industry" placeholder="Industry" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="text" name="website" placeholder="Website" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="text" name="contact" placeholder="HR Email" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
                     <button type="submit" class="btn btn-primary">Add Company</button>
                 </form>
             </div>
@@ -173,14 +173,14 @@ const Components = {
             <header style="margin-bottom:2rem;"><h1>Job Opportunities</h1><p>${jobs.length} active positions</p></header>
             <div class="glass" style="padding:1.5rem;margin-bottom:2rem;"><h2 style="margin-bottom:1rem;">Post Job</h2>
                 <form id="job-post-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;" onsubmit="App.handleJobPost(event)">
-                    <select name="company_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required><option value="" disabled selected>Company</option>${approved.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select>
-                    <input type="text" name="title" placeholder="Job Title" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="number" step="0.1" name="eligibility" placeholder="Min CGPA" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="number" name="max_arrears" placeholder="Max Arrears" value="0" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;">
-                    <input type="text" name="package" placeholder="Package" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="text" name="required_skills" placeholder="Skills (comma sep)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;">
-                    <select name="type" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;"><option value="Full-Time">Full-Time</option><option value="Internship">Internship</option></select>
-                    <input type="date" name="deadline" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
+                    <select name="company_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required><option value="" disabled selected>Company</option>${approved.map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select>
+                    <input type="text" name="title" placeholder="Job Title" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="number" step="0.1" name="eligibility" placeholder="Min CGPA" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="number" name="max_arrears" placeholder="Max Arrears" value="0" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);">
+                    <input type="text" name="package" placeholder="Package" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="text" name="required_skills" placeholder="Skills (comma sep)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);">
+                    <select name="type" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);"><option value="Full-Time">Full-Time</option><option value="Internship">Internship</option></select>
+                    <input type="date" name="deadline" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
                     <button type="submit" class="btn btn-primary">Publish</button>
                 </form>
             </div>
@@ -201,7 +201,7 @@ const Components = {
                         <span>Min CGPA: ${j.eligibility} | Max Arrears: ${j.max_arrears||0}</span>
                         <span>Deadline: ${j.deadline}</span>
                     </div>
-                    <div style="display:flex;gap:0.5rem;"><input type="text" id="apply-sid-${j.id}" placeholder="Student ID" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.25rem 0.5rem;color:white;width:60%;font-size:0.8rem;"><button class="btn btn-primary" style="width:40%;padding:0.5rem;" onclick="App.applyJob('${j.id}')">Apply</button></div>
+                    <div style="display:flex;gap:0.5rem;"><input type="text" id="apply-sid-${j.id}" placeholder="Student ID" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.25rem 0.5rem;color:var(--text-main);width:60%;font-size:0.8rem;"><button class="btn btn-primary" style="width:40%;padding:0.5rem;" onclick="App.applyJob('${j.id}')">Apply</button></div>
                 </div>`).join('')}
             </div></div>`;
     },
@@ -237,9 +237,9 @@ const Components = {
             </header>
             <div class="glass" style="padding:1.5rem;margin-bottom:1.5rem;"><h2 style="margin-bottom:1rem;">Send Announcement</h2>
                 <form id="notif-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem;" onsubmit="App.handleSendNotification(event)">
-                    <select name="type" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;"><option value="announcement">📢 Announcement</option><option value="alert">⚠️ Alert</option><option value="result">🏆 Result</option><option value="interview">📅 Interview</option></select>
-                    <input type="text" name="title" placeholder="Title" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="text" name="message" placeholder="Message" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
+                    <select name="type" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);"><option value="announcement">📢 Announcement</option><option value="alert">⚠️ Alert</option><option value="result">🏆 Result</option><option value="interview">📅 Interview</option></select>
+                    <input type="text" name="title" placeholder="Title" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="text" name="message" placeholder="Message" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
                     <button type="submit" class="btn btn-primary">Send</button>
                 </form>
             </div>
@@ -257,12 +257,12 @@ const Components = {
                 <a href="/api/export/placements" class="btn btn-primary" style="text-decoration:none;" download><i data-lucide="download" size="16"></i> Export CSV</a></header>
             <div class="glass" style="padding:1.5rem;margin-bottom:1.5rem;"><h2 style="margin-bottom:1rem;">Record New Offer</h2>
                 <form id="offer-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;" onsubmit="App.handleAddOffer(event)">
-                    <select name="student_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required><option value="" disabled selected>Student</option>${students.map(s=>`<option value="${s.id}">${s.id} - ${s.name}</option>`).join('')}</select>
-                    <select name="company_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required><option value="" disabled selected>Company</option>${companies.filter(c=>c.approved).map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select>
-                    <select name="job_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required><option value="" disabled selected>Job</option>${jobs.map(j=>`<option value="${j.id}">${j.title}</option>`).join('')}</select>
-                    <input type="text" name="package" placeholder="Package (e.g. 12 LPA)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <div><label style="font-size:0.7rem;color:var(--text-muted);">Offer Date</label><input type="date" name="offer_date" class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;"></div>
-                    <div><label style="font-size:0.7rem;color:var(--text-muted);">Joining Date</label><input type="date" name="joining_date" class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;"></div>
+                    <select name="student_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required><option value="" disabled selected>Student</option>${students.map(s=>`<option value="${s.id}">${s.id} - ${s.name}</option>`).join('')}</select>
+                    <select name="company_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required><option value="" disabled selected>Company</option>${companies.filter(c=>c.approved).map(c=>`<option value="${c.id}">${c.name}</option>`).join('')}</select>
+                    <select name="job_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required><option value="" disabled selected>Job</option>${jobs.map(j=>`<option value="${j.id}">${j.title}</option>`).join('')}</select>
+                    <input type="text" name="package" placeholder="Package (e.g. 12 LPA)" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <div><label style="font-size:0.7rem;color:var(--text-muted);">Offer Date</label><input type="date" name="offer_date" class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);"></div>
+                    <div><label style="font-size:0.7rem;color:var(--text-muted);">Joining Date</label><input type="date" name="joining_date" class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);"></div>
                     <button type="submit" class="btn btn-primary">Add Offer</button>
                 </form>
             </div>
@@ -275,7 +275,7 @@ const Components = {
         return `<div class="fade-in">
             <header style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;"><div><h1>📊 Placement Reports</h1><p>Comprehensive analytics and department-wise/company-wise reports</p></div>
                 <div style="display:flex;gap:1rem;">
-                    <button onclick="window.print()" class="btn" style="background:var(--danger);color:white;border:none;"><i data-lucide="printer" size="16"></i> Generate PDF Report</button>
+                    <button onclick="window.print()" class="btn" style="background:var(--danger);color:var(--text-main);border:none;"><i data-lucide="printer" size="16"></i> Generate PDF Report</button>
                     <a href="/api/export/ranking" class="btn btn-primary" style="text-decoration:none;" download><i data-lucide="download" size="16"></i> Export CSV</a>
                 </div>
             </header>
@@ -306,8 +306,8 @@ const Components = {
         return `<div class="fade-in"><header style="margin-bottom:2rem;"><h1>Resume Management</h1><p>Upload, view, and manage resumes. PDF/DOC/DOCX, max 5MB.</p></header>
             <div class="glass" style="padding:1.5rem;margin-bottom:2rem;"><h2 style="margin-bottom:1rem;">Upload Resume</h2>
                 <form id="resume-upload-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;align-items:end;" onsubmit="App.handleResumeUpload(event)">
-                    <div><label style="font-size:0.8rem;color:var(--text-muted);">Student</label><select name="student_id" class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required><option value="" disabled selected>Choose</option>${students.map(s=>`<option value="${s.id}">${s.id} - ${s.name}</option>`).join('')}</select></div>
-                    <div><label style="font-size:0.8rem;color:var(--text-muted);">File</label><input type="file" name="resume" accept=".pdf,.doc,.docx" class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required></div>
+                    <div><label style="font-size:0.8rem;color:var(--text-muted);">Student</label><select name="student_id" class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required><option value="" disabled selected>Choose</option>${students.map(s=>`<option value="${s.id}">${s.id} - ${s.name}</option>`).join('')}</select></div>
+                    <div><label style="font-size:0.8rem;color:var(--text-muted);">File</label><input type="file" name="resume" accept=".pdf,.doc,.docx" class="glass" style="width:100%;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required></div>
                     <button type="submit" class="btn btn-primary" style="height:fit-content;">Upload</button></form></div>
             <div class="glass" style="padding:1.5rem;"><h2 style="margin-bottom:1rem;">Resumes (${resumes.length})</h2>${resumes.length===0?'<p style="text-align:center;padding:2rem;color:var(--text-muted);">No resumes.</p>':`<div class="table-container"><table><thead><tr><th>Student</th><th>Dept</th><th>File</th><th>Size</th><th>Date</th><th>Actions</th></tr></thead><tbody>
                 ${resumes.map(r=>`<tr><td><div style="display:flex;align-items:center;gap:0.5rem;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(99,102,241,0.15);display:flex;align-items:center;justify-content:center;font-size:0.75rem;">${r.student_name.charAt(0)}</div><div><div style="font-weight:600;">${r.student_name}</div><div style="font-size:0.65rem;color:var(--text-muted);">${r.student_id}</div></div></div></td><td>${r.student_dept||'N/A'}</td><td>${fIcon(r.original_name)} ${r.original_name}</td><td>${fmtSize(r.file_size)}</td><td style="font-size:0.8rem;">${r.uploaded_at?new Date(r.uploaded_at).toLocaleDateString():''}</td><td><div style="display:flex;gap:4px;"><a href="/uploads/resumes/${r.filename}" target="_blank" class="btn" style="padding:3px 6px;font-size:0.65rem;border:1px solid var(--primary);color:var(--primary);background:transparent;text-decoration:none;">View</a><button class="btn" style="padding:3px 6px;font-size:0.65rem;border:1px solid var(--danger);color:var(--danger);background:transparent;" onclick="App.deleteResume(${r.id})">Delete</button></div></td></tr>`).join('')}</tbody></table></div>`}</div></div>`;
@@ -319,12 +319,12 @@ const Components = {
             <div class="stats-grid" style="margin-bottom:1.5rem;">${this.StatCard('Total', interviews.length, 'calendar')}${this.StatCard('Scheduled', interviews.filter(i=>i.status==='Scheduled').length, 'clock')}${this.StatCard('Completed', interviews.filter(i=>i.status==='Completed').length, 'check-circle')}</div>
             <div class="glass" style="padding:1.5rem;margin-bottom:2rem;"><h2 style="margin-bottom:1rem;">Schedule Interview</h2>
                 <form id="interview-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.75rem;" onsubmit="App.handleScheduleInterview(event)">
-                    <select name="student_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required><option value="" disabled selected>Student</option>${students.map(s=>`<option value="${s.id}">${s.id} - ${s.name}</option>`).join('')}</select>
-                    <select name="job_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required><option value="" disabled selected>Job</option>${jobs.map(j=>`<option value="${j.id}">${j.title} (${j.company_name})</option>`).join('')}</select>
-                    <select name="round" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required><option value="" disabled selected>Round</option><option>Aptitude Test</option><option>Technical Round 1</option><option>Technical Round 2</option><option>Group Discussion</option><option>HR Round</option><option>Final Round</option></select>
-                    <input type="date" name="scheduled_date" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="time" name="scheduled_time" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;" required>
-                    <input type="text" name="venue" placeholder="Venue" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:white;">
+                    <select name="student_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required><option value="" disabled selected>Student</option>${students.map(s=>`<option value="${s.id}">${s.id} - ${s.name}</option>`).join('')}</select>
+                    <select name="job_id" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required><option value="" disabled selected>Job</option>${jobs.map(j=>`<option value="${j.id}">${j.title} (${j.company_name})</option>`).join('')}</select>
+                    <select name="round" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required><option value="" disabled selected>Round</option><option>Aptitude Test</option><option>Technical Round 1</option><option>Technical Round 2</option><option>Group Discussion</option><option>HR Round</option><option>Final Round</option></select>
+                    <input type="date" name="scheduled_date" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="time" name="scheduled_time" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);" required>
+                    <input type="text" name="venue" placeholder="Venue" class="glass" style="border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.5rem;color:var(--text-main);">
                     <button type="submit" class="btn btn-primary">Schedule</button></form></div>
             <div class="glass" style="padding:1.5rem;"><h2 style="margin-bottom:1rem;">All Interviews</h2><div class="table-container"><table><thead><tr><th>Student</th><th>Job</th><th>Company</th><th>Round</th><th>Date/Time</th><th>Venue</th><th>Status</th><th>Feedback</th><th>Actions</th></tr></thead><tbody>
                 ${interviews.length===0?'<tr><td colspan="9">No interviews.</td></tr>':interviews.map(i=>`<tr><td style="font-weight:600;">${i.student_name}</td><td>${i.job_title}</td><td>${i.company_name}</td><td style="color:var(--accent);font-weight:600;">${i.round}</td><td style="font-size:0.8rem;">${new Date(i.scheduled_date).toLocaleDateString('en-IN')} ${i.scheduled_time}</td><td style="font-size:0.8rem;">${i.venue}</td><td><span style="padding:3px 8px;border-radius:4px;font-size:0.65rem;font-weight:700;${sts(i.status)}">${i.status}</span></td><td style="font-size:0.75rem;max-width:120px;color:var(--text-muted);">${i.feedback||'—'}</td><td><div style="display:flex;gap:3px;">${i.status==='Scheduled'?`<button class="btn" style="padding:2px 6px;font-size:0.6rem;border:1px solid var(--success);color:var(--success);background:transparent;" onclick="App.updateInterview(${i.id},'Completed')">✓</button>`:''}<button class="btn" style="padding:2px 6px;font-size:0.6rem;border:1px solid var(--danger);color:var(--danger);background:transparent;" onclick="App.deleteInterview(${i.id})">✗</button></div></td></tr>`).join('')}
@@ -338,7 +338,7 @@ const Components = {
             <div class="glass" style="padding:1rem;margin-bottom:1.5rem;border-left:4px solid var(--accent);"><div style="display:flex;gap:2rem;flex-wrap:wrap;font-size:0.85rem;"><span>📊 Avg Selected CGPA: <strong>${avgSelectedGpa?avgSelectedGpa.toFixed(2):'N/A'}</strong></span><span>🧠 CGPA(80%) + Skills(+2%/skill) - Arrears(-15%/arrear)</span><span>👥 ${predictions.length} students</span></div></div>
             <div class="stats-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));">
                 ${predictions.map(s=>`<div class="card glass" style="position:relative;overflow:hidden;"><div style="position:absolute;top:0;right:0;width:70px;height:70px;display:flex;align-items:center;justify-content:center;border-radius:0 0 0 100%;background:rgba(${s.probability>=75?'16,185,129':s.probability>=50?'245,158,11':'239,68,68'},0.1);"><span style="font-size:1.2rem;font-weight:800;color:${pc(s.probability)};">${s.probability}%</span></div>
-                    <div style="display:flex;align-items:center;gap:0.5rem;"><div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;">${s.name.charAt(0)}</div><div><h3 style="font-size:1rem;">${s.name}</h3><p style="font-size:0.75rem;color:var(--text-muted);">${s.id} • ${s.dept} • CGPA:${s.gpa} ${s.arrears>0?'• ⚠️'+s.arrears+' arrears':''} ${!s.verified?'• ❌ Unverified':''}</p></div></div>
+                    <div style="display:flex;align-items:center;gap:0.5rem;"><div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:var(--text-main);font-weight:700;">${s.name.charAt(0)}</div><div><h3 style="font-size:1rem;">${s.name}</h3><p style="font-size:0.75rem;color:var(--text-muted);">${s.id} • ${s.dept} • CGPA:${s.gpa} ${s.arrears>0?'• ⚠️'+s.arrears+' arrears':''} ${!s.verified?'• ❌ Unverified':''}</p></div></div>
                     <div style="margin:0.5rem 0;"><div style="display:flex;justify-content:space-between;font-size:0.7rem;"><span>Probability</span><span style="font-weight:700;color:${pc(s.probability)};">${s.probability}%</span></div><div style="height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;"><div style="width:${s.probability}%;height:100%;background:${pc(s.probability)};border-radius:3px;"></div></div></div>
                     <div style="display:flex;justify-content:space-between;"><span style="padding:2px 8px;border-radius:10px;font-size:0.65rem;font-weight:700;background:rgba(${s.riskColor==='success'?'16,185,129':s.riskColor==='warning'?'245,158,11':'239,68,68'},0.15);color:var(--${s.riskColor});">${s.risk}</span><span style="font-size:0.7rem;color:${s.status==='Selected'?'var(--success)':'var(--text-muted)'};font-weight:600;">${s.status==='Selected'?'✅ Placed':'⏳ Pending'}</span></div>
                     ${s.skills?`<div style="display:flex;flex-wrap:wrap;gap:2px;margin-top:0.3rem;">${s.skills.split(',').map(sk=>`<span style="background:rgba(139,92,246,0.15);color:var(--accent);padding:1px 5px;border-radius:10px;font-size:0.55rem;font-weight:600;">${sk.trim()}</span>`).join('')}</div>`:''}
@@ -397,10 +397,10 @@ const Components = {
             <div class="stats-grid">
                 ${alumni.map(a => `<div class="card glass">
                     <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-                        <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg, var(--secondary), var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-size:1.5rem;font-weight:bold;">${a.name.charAt(0)}</div>
+                        <div style="width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg, var(--secondary), var(--accent));display:flex;align-items:center;justify-content:center;color:var(--text-main);font-size:1.5rem;font-weight:bold;">${a.name.charAt(0)}</div>
                         <div>
                             <h3 style="font-size:1.1rem;">${a.name}</h3>
-                            <p style="font-size:0.8rem;color:var(--text-muted);">${a.position} at <strong style="color:white;">${a.company}</strong></p>
+                            <p style="font-size:0.8rem;color:var(--text-muted);">${a.position} at <strong style="color:var(--text-main);">${a.company}</strong></p>
                         </div>
                     </div>
                     <div style="font-size:0.8rem;margin-bottom:0.5rem;"><i data-lucide="mail" size="14" style="vertical-align:middle;margin-right:5px;"></i>${a.email}</div>
@@ -416,7 +416,7 @@ const Components = {
             <div class="glass" style="padding:2rem;max-width:500px;margin:0 auto;text-align:center;">
                 <h3 style="margin-bottom:1rem;">Select Student to Analyze</h3>
                 <form onsubmit="App.handleResumeScore(event)" style="display:flex;gap:1rem;">
-                    <input type="text" name="student_id" placeholder="Student ID (e.g. S001)" class="glass" style="flex:1;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:white;" required>
+                    <input type="text" name="student_id" placeholder="Student ID (e.g. S001)" class="glass" style="flex:1;border:1px solid var(--surface-border);border-radius:var(--radius-md);padding:0.75rem;color:var(--text-main);" required>
                     <button type="submit" class="btn btn-primary">Analyze</button>
                 </form>
                 <div id="resume-score-result" style="margin-top:2rem;display:none;"></div>
