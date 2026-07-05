@@ -1,62 +1,61 @@
 const BASE_URL = 'https://placement-portal-3-lv7i.onrender.com';
 
 const API = {
-    async getStats() { return (await fetch(BASE_URL + '/api/stats')).json(); },
-    async getStudents() { return (await fetch(BASE_URL + '/api/students')).json(); },
-    async getStudentRanking() { return (await fetch(BASE_URL + '/api/students/ranking')).json(); },
+    async getStats() { const r = await fetch(BASE_URL + '/api/stats'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    async getStudents() { const r = await fetch(BASE_URL + '/api/students'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    async getStudentRanking() { const r = await fetch(BASE_URL + '/api/students/ranking'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     async addStudent(d) { const r = await fetch(BASE_URL + '/api/students', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d) }); return r.json(); },
-    async verifyStudent(id) { return (await fetch(`/api/students/${id}/verify`, { method:'PUT' })).json(); },
-    async deleteStudent(id) { return (await fetch(`/api/students/${id}`, { method:'DELETE' })).json(); },
+    async verifyStudent(id) { const r = await fetch(BASE_URL + `/api/students/${id}/verify`, { method:'PUT' }); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    async deleteStudent(id) { const r = await fetch(BASE_URL + `/api/students/${id}`, { method:'DELETE' }); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     
-    async getCompanies() { return (await fetch(BASE_URL + '/api/companies')).json(); },
+    async getCompanies() { const r = await fetch(BASE_URL + '/api/companies'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     async addCompany(d) { const r = await fetch(BASE_URL + '/api/companies', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d) }); return r.json(); },
-    async approveCompany(id) { return (await fetch(`/api/companies/${id}/approve`, { method:'PUT' })).json(); },
+    async approveCompany(id) { const r = await fetch(BASE_URL + `/api/companies/${id}/approve`, { method:'PUT' }); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     
-    async getJobs() { return (await fetch(BASE_URL + '/api/jobs')).json(); },
+    async getJobs() { const r = await fetch(BASE_URL + '/api/jobs'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     async addJob(d) { const r = await fetch(BASE_URL + '/api/jobs', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d) }); return r.json(); },
     
-    async getApplications() { return (await fetch(BASE_URL + '/api/applications')).json(); },
+    async getApplications() { const r = await fetch(BASE_URL + '/api/applications'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     async applyForJob(sid, jid) {
         const r = await fetch(BASE_URL + '/api/applications', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({student_id:sid, job_id:jid}) });
         if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json();
     },
     async updateApplicationStatus(id, status) {
-        return (await fetch(`/api/applications/${id}/status`, { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({status}) })).json();
+        const r = await fetch(BASE_URL + `/api/applications/${id}/status`, { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify({status}) }); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); }
     },
     
-    async getDrives() { return (await fetch(BASE_URL + '/api/drives')).json(); },
+    async getDrives() { const r = await fetch(BASE_URL + '/api/drives'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     
-    async getResumes() { return (await fetch(BASE_URL + '/api/resumes')).json(); },
+    async getResumes() { const r = await fetch(BASE_URL + '/api/resumes'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     async uploadResume(fd) { const r = await fetch(BASE_URL + '/api/resumes', { method:'POST', body:fd }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); },
-    async deleteResume(id) { return (await fetch(`/api/resumes/${id}`, { method:'DELETE' })).json(); },
+    async deleteResume(id) { const r = await fetch(BASE_URL + `/api/resumes/${id}`, { method:'DELETE' }); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     
-    async getInterviews() { return (await fetch(BASE_URL + '/api/interviews')).json(); },
+    async getInterviews() { const r = await fetch(BASE_URL + '/api/interviews'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     async addInterview(d) { const r = await fetch(BASE_URL + '/api/interviews', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); },
-    async updateInterview(id, d) { return (await fetch(`/api/interviews/${id}`, { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d) })).json(); },
-    async deleteInterview(id) { return (await fetch(`/api/interviews/${id}`, { method:'DELETE' })).json(); },
+    async updateInterview(id, d) { const r = await fetch(BASE_URL + `/api/interviews/${id}`, { method:'PUT', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d) }); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    async deleteInterview(id) { const r = await fetch(BASE_URL + `/api/interviews/${id}`, { method:'DELETE' }); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     
-    async getActivities() { return (await fetch(BASE_URL + '/api/activities')).json(); },
+    async getActivities() { const r = await fetch(BASE_URL + '/api/activities'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     
-    async getNotifications() { return (await fetch(BASE_URL + '/api/notifications')).json(); },
-    async addNotification(d) { return (await fetch(BASE_URL + '/api/notifications', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d) })).json(); },
-    async markNotificationRead(id) { return (await fetch(`/api/notifications/${id}/read`, { method:'PUT' })).json(); },
-    async markAllNotificationsRead() { return (await fetch(BASE_URL + '/api/notifications/read-all', { method:'PUT' })).json(); },
+    async getNotifications() { const r = await fetch(BASE_URL + '/api/notifications'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    async addNotification(d) { const r = await fetch(BASE_URL + '/api/notifications', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d) }); return r.json(); },
+    async markNotificationRead(id) { const r = await fetch(BASE_URL + `/api/notifications/${id}/read`, { method:'PUT' }); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    async markAllNotificationsRead() { const r = await fetch(BASE_URL + '/api/notifications/read-all', { method:'PUT' }); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     
-    async getOffers() { return (await fetch(BASE_URL + '/api/offers')).json(); },
+    async getOffers() { const r = await fetch(BASE_URL + '/api/offers'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    async addOffer(d) { const r = await fetch(BASE_URL + '/api/offers', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d) }); return r.json(); },
+    
+    async getPredictor() { const r = await fetch(BASE_URL + '/api/predictor'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    
+    async getDeptReports() { const r = await fetch(BASE_URL + '/api/reports/department'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    async getCompanyReports() { const r = await fetch(BASE_URL + '/api/reports/company'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    
+    async search(q) { const r = await fetch(BASE_URL + `/api/search?q=${encodeURIComponent(q)}`); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
 
-    async addOffer(d) { return (await fetch(BASE_URL + '/api/offers', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(d) })).json(); },
-    
-    async getPredictor() { return (await fetch(BASE_URL + '/api/predictor')).json(); },
-    
-    async getDeptReports() { return (await fetch(BASE_URL + '/api/reports/department')).json(); },
-    async getCompanyReports() { return (await fetch(BASE_URL + '/api/reports/company')).json(); },
-    
-    async search(q) { return (await fetch(`/api/search?q=${encodeURIComponent(q)}`)).json(); },
-
-    async getSkillGaps() { return (await fetch(BASE_URL + '/api/skills/gap')).json(); },
-    async getTrainingModules() { return (await fetch(BASE_URL + '/api/training')).json(); },
-    async getAlumni() { return (await fetch(BASE_URL + '/api/alumni')).json(); },
-    async getResumeScore(id) { return (await fetch(BASE_URL + `/api/resumes/score/${id}`)).json(); },
+    async getSkillGaps() { const r = await fetch(BASE_URL + '/api/skills/gap'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    async getTrainingModules() { const r = await fetch(BASE_URL + '/api/training'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    async getAlumni() { const r = await fetch(BASE_URL + '/api/alumni'); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
+    async getResumeScore(id) { const r = await fetch(BASE_URL + `/api/resumes/score/${id}`); const t = await r.text(); try { return JSON.parse(t); } catch(e) { throw new Error(`Server returned non-JSON: ${t.substring(0, 50)}...`); } },
     async registerForDrive(id, sid) { const r = await fetch(BASE_URL + `/api/drives/${id}/register`, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({student_id:sid}) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); },
     async login(email, password) { const r = await fetch(BASE_URL + '/api/login', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email, password}) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); },
     async forgotPassword(email) { const r = await fetch(BASE_URL + '/api/forgot-password', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({email}) }); if (!r.ok) { const e = await r.json(); throw new Error(e.error); } return r.json(); },
